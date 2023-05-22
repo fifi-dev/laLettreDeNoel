@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home pt-32">
+   <!--<img alt="Vue logo" src="../assets/logo.png">-->
+   <p class="mb-4">Compte à rebourd jusqu'à Noel</p>
+    <CountDown></CountDown>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CountDown from '@/components/CountDown.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    CountDown
   }
 }
 </script>
