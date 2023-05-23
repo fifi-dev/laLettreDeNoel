@@ -2,7 +2,6 @@
   <div class="home pt-32">
    <p class="mb-4">Compte à rebourd jusqu'à Noel</p>
    <HeaderComponent></HeaderComponent>
-
    <!--  <img alt="Vue logo" src="../assets/snowyBall.png">-->
   </div>
 </template>
