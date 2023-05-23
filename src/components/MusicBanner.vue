@@ -11,7 +11,7 @@
         </div>
     </div>
 </template>
-<script src="">
+<script >
 export default {
     name: 'MusicPlayer',
     }
