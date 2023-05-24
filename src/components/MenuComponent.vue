@@ -1,5 +1,5 @@
 <template>
-        <nav class="menu-component absolute z-40 w-full bg-green-800 h-screen top-0 left-0 flex items-center justify-center">
+        <nav class="menu-component absolute z-20 w-full bg-green-800 h-screen top-0 left-0 flex items-center justify-center">
             <ul class="relative  max-sm:block">
                 <li class="nav-item">Accueil</li>
                 <li class="nav-item">La boite aux lettres</li>
@@ -35,5 +35,12 @@ nav{
 }
 .nav-item:hover{
     transform: scale(1.2);
+}
+
+@media screen and (max-width: 767px){
+nav{
+    font-size: 3rem;
+    
+}
 }
 </style>
