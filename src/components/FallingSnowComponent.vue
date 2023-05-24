@@ -62,17 +62,33 @@
                     }
                 },
                 interactivity: {
-                    detect_on: 'canvas',
                     events: {
-                        onhover: {
+                        onDiv: [
+                            {
                             enable: true,
-                            mode: 'repulse'
-                        },
-                        onclick: {
+                            selectors: '#bubble-circle-div',
+                            mode: 'bubble',
+                            type: 'circle'
+                            },
+                            {
                             enable: true,
-                            mode: 'repulse'
-                        },
-                        resize: true
+                            selectors: '#repulse-circle-div',
+                            mode: 'repulse',
+                            type: 'circle'
+                            },
+                            {
+                            enable: true,
+                            selectors: '#bubble-rectangle-div',
+                            mode: 'bubble',
+                            type: 'rectangle'
+                            },
+                            {
+                            enable: true,
+                            selectors: '#repulse-rectangle-div',
+                            mode: 'repulse',
+                            type: 'rectangle'
+                            }
+                        ]
                     },
                     modes: {
                         grab: {
