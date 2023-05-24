@@ -1,5 +1,5 @@
 <template>
-    <div class="settings-component w-full h-screen top-0 left-0 absolute bg-slate-800 z-40 flex justify-center items-center">
+    <div class="settings-component w-full h-screen top-0 left-0 absolute bg-slate-800 z-20 flex justify-center items-center">
         <div>
             <h2> Paramètres</h2>
             <div class="my-12">
@@ -20,7 +20,7 @@
                         </svg>
                     </div>
                     <div>
-                        <input type="range" name="" id="" min="0" max="100">
+                        <input type="range" value="50" name="" id="" min="0" max="100">
                     </div>
                 </div>
             </div>
@@ -65,6 +65,10 @@ export default {
 </script>
 
 <style scoped>
+
+.settings-component{
+    transform: translateX(100%);
+}
 h2{
 font-size: 5rem;
 }

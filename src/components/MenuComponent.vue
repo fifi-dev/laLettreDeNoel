@@ -3,7 +3,7 @@
             <ul class="relative  max-sm:block">
                 <li class="nav-item">Accueil</li>
                 <li class="nav-item">La boite aux lettres</li>
-                <li class="nav-item">Credits</li>
+                <li class="nav-item">Crédits</li>
                 <p class="absolute copyright text-center">© 2023 - All right Reserved </p>
             </ul>
         </nav>
@@ -16,7 +16,6 @@ export default {
 <style>
 .menu-component{
     transform: translateX(-100%);
-    box-shadow: 21px 21px 55px rgba(255, 255, 255, 0.057);
 }
 
 nav{
