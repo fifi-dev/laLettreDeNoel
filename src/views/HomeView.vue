@@ -22,7 +22,6 @@
    <img src="../assets/map_snow.svg" class="opacity-[0.3] h-[25px]"  onmousedown="return false" onmousemove="return false" >
 
    <img src="../assets/traineau.svg" class="absolute traineau translate-x-[-310%]"  onmousedown="return false" onmousemove="return false">
-   <img src="../assets/traineau2.svg" class="absolute traineau2 scale-x-[-1] translate-x-[-350%]"  onmousedown="return false" onmousemove="return false">
 
   </div>
 </template>
