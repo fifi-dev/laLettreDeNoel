@@ -5,6 +5,7 @@ import CreditsView from '../views/CreditsView.vue'
 import LetterBoxView from '../views/LetterBoxView.vue'
 
 import CarouselView from '../views/CarouselView.vue'
+import WriteCardView from '../views/WriteCardView.vue'
 
 
 const routes = [
@@ -17,6 +18,11 @@ const routes = [
     path: '/cards',
     name: 'cards',
     component: CarouselView
+  },
+  {
+    path: '/write-card/:id',
+    name: 'write-card',
+    component: WriteCardView
   },
   {
     path: '/about',
