@@ -5,7 +5,7 @@
             <div class="carousel">
             <div class="next" @click="nextSlide()"></div>
             <div class="prev" @click="prevSlide()"></div>
-                <div class="item a flex items-center justify-center close" @click="openEnvelope($event)" data-color="red">
+                <div class="item a flex items-center justify-center open" @click="openEnvelope($event)" data-color="red">
                     <div class="background"></div>
                     <div class="flap"></div>
                     <div class="letter"></div>
@@ -119,7 +119,7 @@ export default {
           card.classList.add("open-selected");
           setTimeout(() => {
             this.$router.push({
-              path: '/write-card/' + card.getAttribute('data-color')
+              path: '/ma-lettre/' + card.getAttribute('data-color')
             });  
           }, 2500);
         }

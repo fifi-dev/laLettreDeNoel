@@ -7,7 +7,8 @@ import LetterWriteView from '../views/LetterWriteView.vue'
 
 import CarouselView from '../views/CarouselView.vue'
 import WriteCardView from '../views/WriteCardView.vue'
-
+import NotFound from '../views/NotFound.vue'
+import ShareView from '../views/ShareView.vue'
 
 const routes = [
   {
@@ -34,7 +35,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/ma-lettre',
+    path: '/ma-lettre/:id',
     name: 'letterWrite',
     component: LetterWriteView
   },
@@ -48,6 +49,20 @@ const routes = [
     name: 'credits',
     component: CreditsView
   },
+  {
+    path: '/reussie',
+    name: 'success',
+    component: ShareView
+  },
+  {
+      path:"/:pathMatch(.*)*",
+      name:"NotFound",
+      component: NotFound,
+      meta: {
+          hideNavbarElem: true,
+          hideAllNav: true
+      },
+  }
 ]
 
 const router = createRouter({
