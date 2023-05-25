@@ -1,17 +1,31 @@
 <template>
     <div class="letter-write p-20 max-md:px-0">
-        <h1 class=" text-4xl mb-10">Rediges ta lettre</h1>
-        <div class="writer-info hidden absolute top-0 left-0 w-full h-screen">
-            <div class="bg-white w-3/5 h-3/5 m-auto" >
-                hddksj
-            </div>
+        <h1 class=" text-4xl mb-5">Ta lettre</h1>
+        <div class="letter-wrap py-12  max-md:py-10 w-fit m-auto">
+            <textarea v-model="letter.content" name="letterContent" id="letterContent" cols="30" rows="12" class="w-3/5 m-auto"></textarea>
         </div>
-        <div class="letter-wrap py-12 max-md:py-10 w-fit m-auto">
-            <textarea name="letter" id="letter" cols="30" rows="12" class="w-3/5 m-auto"></textarea>
+        <div v-if="SendButton" class="envelope-wrap bg-white w-2/5 h-2/5 m-auto relative royalWedding" >
+                <div class=" text-4xl absolute top-10 right-32 text-black">
+                    <div class="flex items-center">
+                        <p>De : </p>
+                        <input class="ml-3" type="text" name="letterName" id="letterName" v-model="letter.name" >
+                    </div>
+                    <div class="flex mt-2 items-center">
+                        <p>Pour : </p>
+                        <input class="ml-3" type="text" name="letterName" id="letterName" v-model="letter.destinateur" >
+                    </div>
+                </div>
+                <img src="../assets/card-red.svg" alt="">
+        </div>
+        <div class="mt-4">
+            <button v-if="goNextStep" class="displayNextButton" @click="displayNext">Confirmer</button>
+            <button v-if="SendButton" @click="submit()">Envoyer</button>
         </div>
     </div>
 </template>
 <script>
+
+import { supabase } from '../supabase.js';
 export default {
     name: 'LetterWriteView',
     data() {
@@ -19,15 +33,17 @@ export default {
         letter: {
         name: '',
         content: '',
-        url: ''
-        }
+        destinateur: ''
+        },
+        goNextStep: true,
+        SendButton: false
     };
-  },
+    },
     methods:{
         async submit() {
-            const { data, error } = await this.$supabase
+            const { data, error } = await supabase
                 .from('letters')
-                .insert(this.course);
+                .insert(this.letter);
                 if (data) {
                     console.log('Letter successfully added !');
                     this.goTo('home');
@@ -38,6 +54,25 @@ export default {
         goTo(name) {
         this.$router.push({ name: name });
         },
+        displayNext: function(){
+            //var envelopeWrap = document.querySelector('.envelope-wrap');
+            var letterWrap = document.querySelector('.letter-wrap');
+
+            letterWrap.style.transform="translateY(-200%)";
+            letterWrap.style.transition=" all 1s ease" ;
+            
+            setTimeout(() => {
+                letterWrap.classList.add("hidden");
+            }, "500");
+            this.goNextStep = false;
+            this.SendButton = true;
+            //envelopeWrap.classList.remove("hidden");
+            //envelopeWrap.style.transform="translateY(0%)";
+            //envelopeWrap.style.transition=" all 1.5s ease" ;
+        }
+    },
+    mounted(){
+        
     }
 }
 </script>
@@ -51,7 +86,7 @@ export default {
   background-size: 100% 100%;
     height: 70vh;
 }
-#letter{
+#letterContent{
     background-color: transparent;
     background-attachment: local;
     background-image:
@@ -81,11 +116,11 @@ export default {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: transparent; 
+    background: transparent; 
 }
 
-.writer-info{
-    background-color: rgba(44, 43, 43, 0.668);
+.envelope-wrap{
+    width: 40vw;
 }
 
 @media screen and (max-width: 767px){
@@ -96,10 +131,31 @@ export default {
     height: 70vh;
 }
 
-#letter{
+#letterContent{
     font-size: 2.5rem;
 }
 
+.envelope-wrap{
+    width: 80vw;
+}
+
+
+}
+
+input{
+    background-color: transparent;
+    outline: none;
+    color: black;
+    border-bottom: 1px solid black ;
+}
+
+input::placeholder {
+    color: b;
+}
+
+button{
+    border: 1px solid white;
+    padding: 10px 15px;
 }
 
 </style>
