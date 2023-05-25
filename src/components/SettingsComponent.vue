@@ -5,13 +5,13 @@
             <div class="my-12">
                 <p >Musique</p>
                 <div class="my-4">
-                    <select name="musiqueChoice" id="musiqueChoice">
+                    <select name="musiqueChoice" id="musiqueChoice" class=" cursor-pointer">
                         <option value="merryChristmas">Merry Christmas</option>
                         <option value="jingleBells">Jingle Bells</option>
                     </select>
                 </div>
                 <div class="flex justify-center items-center">
-                    <div @click="toggleAudio()" class="mr-4">
+                    <div @click="toggleAudio()" class="mr-4 cursor-pointer playPauseButton">
                         <svg v-if="bgSoundPlaying" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
                         </svg>
@@ -91,6 +91,15 @@ select{
     border: 5px solid #20293A;
     outline: 1px solid white;
 }
+
+.playPauseButton, select{
+    transition: all 0.3s ease-out;
+}
+.playPauseButton:hover,select:hover{
+    transform: scale(1.1);
+}
+
+
 @media screen and (max-width: 767px){
 h2{
     font-size: 3rem

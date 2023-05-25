@@ -3,8 +3,19 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>-->
+  <HeaderComponent></HeaderComponent>
   <router-view/>
 </template>
+<script>
+import HeaderComponent from './components/HeaderComponent.vue';
+
+export default {
+
+  components: {
+    HeaderComponent
+},}
+</script>
+
 
 <style>
 #app {

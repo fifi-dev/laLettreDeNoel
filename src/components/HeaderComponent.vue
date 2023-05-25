@@ -84,7 +84,6 @@ export default {
 
     },
     mounted(){
-        
         console.log("The menu is not displayed" + this.displayMenu)
     }
 }

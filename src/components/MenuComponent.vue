@@ -31,6 +31,7 @@ nav{
 
 .nav-item{
     transition: all 0.3s ease-out;
+    cursor: pointer;
 }
 .nav-item:hover{
     transform: scale(1.2);
