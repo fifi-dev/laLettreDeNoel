@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="text-8xl">La lettre De Noel</h1>
+        <h1 class="text-8xl m-5 cursor-pointer">La lettre De Noel</h1>
     </div>
 </template>
 <script>
