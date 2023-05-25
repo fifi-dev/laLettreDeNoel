@@ -1,5 +1,6 @@
 <template>
     <div class="letter-write p-20 max-md:px-0">
+        <FallingSnowComponent></FallingSnowComponent>
         <h1 class=" text-4xl mb-5">Ta lettre</h1>
         <div class="letter-wrap py-12  max-md:py-10 w-fit m-auto">
             <textarea v-model="letter.content" name="letterContent" id="letterContent" cols="30" rows="12" class="w-3/5 m-auto"></textarea>
@@ -25,42 +26,42 @@
 </template>
 <script>
 
+import FallingSnowComponent from '@/components/FallingSnowComponent.vue';
 import { supabase } from '../supabase.js';
 export default {
-    name: 'LetterWriteView',
+    name: "LetterWriteView",
     data() {
-    return {
-        letter: {
-        name: '',
-        content: '',
-        destinateur: ''
-        },
-        goNextStep: true,
-        SendButton: false
-    };
+        return {
+            letter: {
+                name: "",
+                content: "",
+                destinateur: ""
+            },
+            goNextStep: true,
+            SendButton: false
+        };
     },
-    methods:{
+    methods: {
         async submit() {
             const { data, error } = await supabase
-                .from('letters')
+                .from("letters")
                 .insert(this.letter);
-                if (data) {
-                    console.log('Letter successfully added !');
-                    this.goTo('home');
-                } else {
-                    console.log(error);
-                }
+            if (data) {
+                console.log("Letter successfully added !");
+                this.goTo("success");
+            }
+            else {
+                console.log(error);
+            }
         },
         goTo(name) {
-        this.$router.push({ name: name });
+            this.$router.push({ name: name });
         },
-        displayNext: function(){
+        displayNext: function () {
             //var envelopeWrap = document.querySelector('.envelope-wrap');
-            var letterWrap = document.querySelector('.letter-wrap');
-
-            letterWrap.style.transform="translateY(-200%)";
-            letterWrap.style.transition=" all 1s ease" ;
-            
+            var letterWrap = document.querySelector(".letter-wrap");
+            letterWrap.style.transform = "translateY(-200%)";
+            letterWrap.style.transition = " all 1s ease";
             setTimeout(() => {
                 letterWrap.classList.add("hidden");
             }, "500");
@@ -71,21 +72,57 @@ export default {
             //envelopeWrap.style.transition=" all 1.5s ease" ;
         }
     },
-    mounted(){
-        
-    }
+    mounted() {
+        console.log(this.$route.params.id);
+        var letterWrap = document.querySelector(".letter-wrap");
+        if (this.$route.params.id == "red") {
+            letterWrap.classList.add("letter-wrap-red");
+        }
+        else if (this.$route.params.id == "blue") {
+            letterWrap.classList.add("letter-wrap-blue");
+        }
+        else if (this.$route.params.id == "yellow") {
+            letterWrap.classList.add("letter-wrap-yellow");
+        }
+        else {
+            alert("erreur de paramètre");
+        }
+    },
+    components: { FallingSnowComponent }
 }
 </script>
 
 <style scoped>
-.letter-wrap{
-    background: url("../assets/letter.jpg");
-    width: 28vw;
+
+.letter-wrap-red{
+    background: url("../assets/letter-red.jpg");
     background-repeat: no-repeat;  
-  background-position: 0% 0%;
-  background-size: 100% 100%;
+    background-position: 0% 0%;
+    background-size: 100% 100%;
+}
+.letter-wrap-blue{
+    background: url("../assets/letter-blue.jpg");
+    background-repeat: no-repeat;  
+    background-position:center;
+    background-size: 130% 122%;
+}
+
+.letter-wrap-yellow{
+    background: url("../assets/letter-yellow.jpg");
+    background-repeat: no-repeat;  
+    background-position:center;
+    background-size: 130% 130%;
+}
+.letter-wrap{
+
+    width: 28vw;
+   
     height: 70vh;
 }
+
+
+
+
 #letterContent{
     background-color: transparent;
     background-attachment: local;
