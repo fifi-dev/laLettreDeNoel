@@ -1,24 +1,23 @@
 <template>
     <div class=" flex justify-center flex-col items-center">
-        <HeaderComponent></HeaderComponent>
         <FallingSnowComponentVue></FallingSnowComponentVue>
         <div class="container">
             <div class="carousel">
             <div class="next" @click="nextSlide()"></div>
             <div class="prev" @click="prevSlide()"></div>
-                <div class="item a flex items-center justify-center close" @click="openEnvelope($event)">
+                <div class="item a flex items-center justify-center close" @click="openEnvelope($event)" data-color="red">
                     <div class="background"></div>
                     <div class="flap"></div>
                     <div class="letter"></div>
                     <div class="h-[95%] w-[96.5%] a-image"></div>
                 </div>
-                <div class="item b flex items-center justify-center" @click="openEnvelope($event)">
+                <div class="item b flex items-center justify-center close" @click="openEnvelope($event)" data-color="blue">
                     <div class="background"></div>
                     <div class="flap"></div>
                     <div class="letter"></div>
                     <div class="h-[95%] w-[96.5%] b-image"></div>
                 </div>
-                <div class="item c flex items-center justify-center" @click="openEnvelope($event)">
+                <div class="item c flex items-center justify-center close" @click="openEnvelope($event)" data-color="yellow">
                     <div class="background"></div>
                     <div class="flap"></div>
                     <div class="letter"></div>
@@ -26,19 +25,17 @@
                 </div>
             </div>
         </div>
-        <button class="test">Selectionner</button>
+        <button class="select-btn" @click="select()">Sélectionner</button>
     </div>
 </template>
 
 <script>
 import FallingSnowComponentVue from '../components/FallingSnowComponent.vue';
-import HeaderComponent from '../components/HeaderComponent.vue';
 
 export default {
     name: 'CarouselView',
     components: {
         FallingSnowComponentVue,
-        HeaderComponent,
     },
     data() {
         return{
@@ -115,6 +112,16 @@ export default {
                 e.target.parentNode.classList.add("open");
                 e.target.parentNode.classList.remove("close");
             }
+        },
+        select: function () {
+          const card = document.querySelector(".open");
+          card.classList.remove("open");
+          card.classList.add("open-selected");
+          setTimeout(() => {
+            this.$router.push({
+              path: '/write-card/' + card.getAttribute('data-color')
+            });  
+          }, 2500);
         }
     },
 }
@@ -226,7 +233,6 @@ export default {
 }
 .letter {
   position: absolute;
-  background-image: url('../assets/writing-card-red.svg');
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -237,6 +243,15 @@ export default {
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
+}
+.a .letter {
+  background-image: url('../assets/writing-card-red.svg');
+}
+.b .letter {
+  background-image: url('../assets/writing-card-blue.svg');
+}
+.c .letter {
+  background-image: url('../assets/writing-card-yellow.svg');
 }
 .open .letter {
   transform: translateY(-60px);
@@ -268,8 +283,26 @@ export default {
 .c .background {
     background-color: #edcb86de;
 }
-.test {
+.select-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 10vh;
+    padding: .8rem;
+    border: solid 1px white;
+    transition: all .3s;
 }
+.select-btn:hover {
+  background-color: white;
+  color: green;
+}
+.open-selected .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+.open-selected .letter {
+  transform: translateY(-600px);
+  transition: transform 3s, height .5s,z-index 0.6s;
+  z-index: 2;
+  height: 300px;
+}
+
 </style>
