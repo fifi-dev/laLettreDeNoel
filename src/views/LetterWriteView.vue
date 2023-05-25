@@ -1,7 +1,7 @@
 <template>
     <div class="letter-write p-20 max-md:px-0">
         <h1 class=" text-4xl mb-10">Rediges ta lettre</h1>
-        <div class="letter-wrap py-20 max-md:py-10">
+        <div class="letter-wrap py-12 max-md:py-10 w-fit m-auto">
             <textarea name="letter" id="letter" cols="30" rows="12" class="w-3/5 m-auto"></textarea>
         </div>
     </div>
@@ -16,11 +16,11 @@ export default {
 <style scoped>
 .letter-wrap{
     background: url("../assets/letter.jpg");
-    width: 30vw;
+    width: 28vw;
     background-repeat: no-repeat;  
   background-position: 0% 0%;
   background-size: 100% 100%;
-    height: 80vh;
+    height: 70vh;
 }
 #letter{
     background-color: transparent;
