@@ -1,6 +1,6 @@
 <template>
   <div class="home pt-32 flex justify-center flex-col items-center">
-    <HeaderComponent></HeaderComponent>
+
     <FallingSnowComponent></FallingSnowComponent>
 
     <!--  <img alt="Vue logo" src="../assets/snowyBall.png">-->

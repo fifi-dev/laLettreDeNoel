@@ -13,6 +13,10 @@
     font-family: ChristmasAngel;
     src: url("assets/fonts/ChristmasAngel.otf") format("opentype");
 }
+@font-face {
+    font-family: RoyalWedding;
+    src: url("assets/fonts/RoyalWedding.ttf");
+}
 
 h1{
     font-family: 'ChristmasAngel', sans-serif;
@@ -33,4 +37,8 @@ body{
     overflow: hidden;
     font-family: 'Raleway', sans-serif;
     scroll-behavior: smooth;
+}
+
+.royalWedding{
+    font-family: 'RoyalWedding', sans-serif;
 }

@@ -4,7 +4,7 @@
             <h1 >Crédits</h1>
             <div>
                 <h2>Le concept</h2>
-                <p class="w-2/ max-md:w-full max-md:m-auto cursor-pointer">La lettre de noel est un site qui permet de rédiger et transmettre sa lettre directement dans la boite au lettre du  <span @click="santaAppear()" class="displaySanta underline cursor-pointer">père noel</span> ou à ses proches.</p>
+                <p class=" max-md:w-full max-md:m-auto cursor-pointer w-2/5">La lettre de noel est un site qui permet de rédiger et transmettre sa lettre directement dans la boite au lettre du  <span @click="santaAppear()" class="displaySanta underline cursor-pointer">père noel</span> ou à ses proches.</p>
             </div>
             <div>
                 <h2>Les Creative Developer</h2>
@@ -149,8 +149,8 @@ span{
 
 span::after {
     content: '';
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: #fff;
     border-radius: 50%;
     position: absolute;
@@ -172,13 +172,13 @@ span:hover:after{
 
 @keyframes cta {
   0%{
-    outline-width: 1px ;
+    outline-width: 0px ;
   }
   50%{
-    outline-width: 3px ;
+    outline-width: 2px ;
   }
   100% {
-    outline-width: 1px ;
+    outline-width: 0px ;
   }
 }
 
