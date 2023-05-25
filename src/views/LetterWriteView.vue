@@ -1,6 +1,11 @@
 <template>
     <div class="letter-write p-20 max-md:px-0">
         <h1 class=" text-4xl mb-10">Rediges ta lettre</h1>
+        <div class="writer-info hidden absolute top-0 left-0 w-full h-screen">
+            <div class="bg-white w-3/5 h-3/5 m-auto" >
+                hddksj
+            </div>
+        </div>
         <div class="letter-wrap py-12 max-md:py-10 w-fit m-auto">
             <textarea name="letter" id="letter" cols="30" rows="12" class="w-3/5 m-auto"></textarea>
         </div>
@@ -9,7 +14,31 @@
 <script>
 export default {
     name: 'LetterWriteView',
-
+    data() {
+    return {
+        letter: {
+        name: '',
+        content: '',
+        url: ''
+        }
+    };
+  },
+    methods:{
+        async submit() {
+            const { data, error } = await this.$supabase
+                .from('letters')
+                .insert(this.course);
+                if (data) {
+                    console.log('Letter successfully added !');
+                    this.goTo('home');
+                } else {
+                    console.log(error);
+                }
+        },
+        goTo(name) {
+        this.$router.push({ name: name });
+        },
+    }
 }
 </script>
 
@@ -53,6 +82,10 @@ export default {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: transparent; 
+}
+
+.writer-info{
+    background-color: rgba(44, 43, 43, 0.668);
 }
 
 @media screen and (max-width: 767px){
