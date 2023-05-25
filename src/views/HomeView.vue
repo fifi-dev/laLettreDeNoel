@@ -151,7 +151,6 @@ export default {
 
     }, "100");
 
-   
 
     dragElement(document.querySelector(".flocons"));
 
