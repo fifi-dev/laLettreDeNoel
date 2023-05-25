@@ -4,11 +4,11 @@
             <h1 >Crédits</h1>
             <div>
                 <h2>Le concept</h2>
-                <p class=" max-md:w-full max-md:m-auto cursor-pointer w-2/5">La lettre de noel est un site qui permet de rédiger et transmettre sa lettre directement dans la boite au lettre du  <span @click="santaAppear()" class="displaySanta underline cursor-pointer">père noel</span> ou à ses proches.</p>
+                <p class=" max-md:w-full max-md:m-auto w-2/5">La lettre de Noël est un site qui permet de rédiger et de transmettre sa lettre directement dans la boîte aux lettres du  <span @click="santaAppear()" class="displaySanta underline cursor-pointer">père Noël</span> ou à ses proches.</p>
             </div>
             <div>
                 <h2>Les Creative Developer</h2>
-                <p class="w-2/5 max-md:w-full max-md:m-auto cursor-pointer">Notre Équipe est composé de 3 étudiants de l'IIM - Institut de l'Internet et du Multimédia : </p>
+                <p class="w-2/5 max-md:w-full max-md:m-auto">Notre équipe est composée de 3 étudiants de l'IIM - Institut de l'Internet et du Multimédia : </p>
                 <ul class="my-2">
                     <li>- BAZANA NTOMO Fideline</li>
                     <li>- MARTINET Alexis</li>
@@ -20,8 +20,8 @@
                 <h2>Musique & Audio</h2>
                 <p>Ce site utilise les audios suivants : </p>
                 <ul class="mt-2">
-                    <li>- I wish u a merry christmas</li>
-                    <li>- Jingle Bells</li>
+                    <li>- I wish u a merry christmas - Love to Sing</li>
+                    <li>- Jingle Bells - James Lord Pierpont </li>
                     <li>- Ho Ho Ho</li>
                 </ul>
             </div>
