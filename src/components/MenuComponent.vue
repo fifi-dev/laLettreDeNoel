@@ -1,20 +1,20 @@
 <template>
         <nav class="menu-component absolute z-20 w-full bg-green-800 h-screen top-0 left-0 flex items-center justify-center">
-            <iframe src="https://embed.lottiefiles.com/animation/87898" class="guirlandes w-[40%] absolute right-0 h-[100%] translate-y-[-100%]"></iframe>
+            <iframe src="https://embed.lottiefiles.com/animation/87898" class="guirlandes w-[40%] -top-24 absolute right-0 h-[100%] translate-y-[-100%]"></iframe>
             <ul class="relative  max-sm:block">
                 <li class="nav-item opacity-0 flex justify-center items-center">
                     <iframe src="https://embed.lottiefiles.com/animation/94248" class="w-[180px] h-[86px] mt-[-50px] mr-[-50px] opacity-0"></iframe>
-                    Accueil
+                    <a href="/">Accueil</a>
                     <iframe src="https://embed.lottiefiles.com/animation/94248" class="w-[180px] h-[86px] mt-[-50px] ml-[-50px] opacity-0"></iframe>
                 </li>
                 <li class="nav-item opacity-0 flex justify-center items-center">
                     <iframe src="https://embed.lottiefiles.com/animation/94248" class="w-[180px] h-[86px] mt-[-50px] mr-[-50px] opacity-0"></iframe>
-                    La boite aux lettres
+                   <a href="/boite-aux-lettres"> La boite aux lettres</a>
                     <iframe src="https://embed.lottiefiles.com/animation/94248" class="w-[180px] h-[86px] mt-[-50px] ml-[-50px] opacity-0"></iframe>
                 </li>
                 <li class="nav-item opacity-0 flex justify-center items-center">
                     <iframe src="https://embed.lottiefiles.com/animation/94248" class="w-[180px] h-[86px] mt-[-50px] mr-[-50px] opacity-0"></iframe>
-                    Crédits
+                    <a href="/credits">Crédits</a>
                     <iframe src="https://embed.lottiefiles.com/animation/94248" class="w-[180px] h-[86px] mt-[-50px] ml-[-50px] opacity-0"></iframe>
                 </li>
                 <p class="absolute copyright text-center">
@@ -30,7 +30,14 @@
     import gsap from 'gsap';
 export default {
     name: 'MenuComponent',
-
+    methods:{
+        goToHome(){
+            this.goTo("home");
+        },
+        goTo(name) {
+            this.$router.push({ name: name });
+        },
+    },
     mounted(){
         // const tl = gsap.timeline();
 
@@ -92,6 +99,11 @@ nav{
 .nav-item{
     transition: all 0.3s ease-out;
     cursor: pointer;
+}
+
+.nav-item a{
+    color: white;
+    font-weight: normal;
 }
 .nav-item:hover{
     transform: scale(1.2);

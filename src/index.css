@@ -22,6 +22,11 @@ h1{
     font-family: 'ChristmasAngel', sans-serif;
 }
 
+iframe{
+    user-select: none;
+    pointer-events: none;
+}
+
 img{
     width: 100%;
     height: auto;

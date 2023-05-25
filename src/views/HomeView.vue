@@ -83,9 +83,12 @@ export default {
 
   methods: {
     letterTranslate() {
+      
 
-
-    }
+    },
+    goTo(name) {
+            this.$router.push({ name: name });
+        },
   },
 
   mounted() {
@@ -184,8 +187,13 @@ export default {
 
           const tl2 = gsap.timeline();
           tl2.to('.flocon', { scale: 70, rotation: '360deg', duration: 0.5 }).to('.flocon', { rotation: '500deg', y: 1000, x: -50000, duration: 0.3 }).to('.flocon', { scale: 90, rotation: '360deg', x: 1600, y: -1500, duration: 0.5 });
-        }
+          setTimeout(() => {
+          //this.$router.push("boite-aux-lettres")
+          //location.replace("http://localhost:8080/cards");
+          location.replace("https://la-lettre-de-noel.netlify.app/cards");
+          },1600)
 
+        }
       }
 
       function closeDragElement() {
@@ -193,8 +201,10 @@ export default {
         document.onmouseup = null;
         document.onmousemove = null;
         elmnt.style.cursor = "grab"
+
       }
     }
+    
   }
 }
 

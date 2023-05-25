@@ -109,7 +109,7 @@ export default {
                 menuButton.style.zIndex = "30"
 
             }
-        }
+        },
 
     },
     mounted(){
