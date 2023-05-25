@@ -35,7 +35,6 @@ import gsap from 'gsap'
 export default {
   name: 'HomeView',
   components: {
-    HeaderComponent,
     FallingSnowComponent,
     TitleEffect
 },
