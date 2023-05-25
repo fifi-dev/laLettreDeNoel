@@ -99,9 +99,11 @@ export default {
     background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #9a0e0e 4px ), repeating-linear-gradient( #87210555, #872105 );
 }
 
+
 .overlay{
     background: #00000076;
     transition: all 0.5s;
+z-index: 6;
 }
 .credits h2{
     text-transform: uppercase;
@@ -127,6 +129,7 @@ h1{
 
 .santa-passing{
     transform: translateX(100vw);
+    z-index: 7;
 }
 .santa-passing iframe{
     width: 90vw;
@@ -160,6 +163,11 @@ span::after {
     outline: 2px solid #fff;
     transition: all 0.5s;
     animation: cta 2s infinite ease-out;
+}
+
+span:hover:after{
+   transform: scale(0.6);
+   top: 25px;
 }
 
 @keyframes cta {
