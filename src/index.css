@@ -42,3 +42,6 @@ body{
 .royalWedding{
     font-family: 'RoyalWedding', sans-serif;
 }
+iframe{
+    pointer-events: none;
+}

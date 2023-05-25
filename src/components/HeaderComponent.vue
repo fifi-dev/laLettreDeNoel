@@ -37,7 +37,7 @@
 <script>
 import MenuComponent from './MenuComponent.vue';
 import SettingsComponent from './SettingsComponent.vue';
-
+import gsap from 'gsap'
 export default {
     name: "HeaderComponent",
     data() {
@@ -54,16 +54,45 @@ export default {
         menuToggle: function(){
             var menu = document.querySelector('.menu-component');
             var settingsButton = document.querySelector(".settings-buton");
+            const items = document.querySelectorAll('.nav-item');
             if(this.displayMenu === false){
                     menu.style.transform="translateX(0%)";
                     menu.style.transition=" all 1.3s ease" 
                     settingsButton.style.zIndex = "10"
+                    
+                    const tl10 = gsap.timeline();
+                   
+            
+                    tl10
+                    .to(items[0], {opacity: 1, scale:1.5, duration:0.1, delay:0.5})
+                    .to(items[0], {opacity: 1, scale:1, duration:0.1})
+                    .to(items[1], {opacity: 1, scale:1.5, duration:0.1})
+                    .to(items[1], {opacity: 1, scale:1, duration:0.1})
+                    .to(items[2], {opacity: 1, scale:1.5, duration:0.1})
+                    .to(items[2], {opacity: 1, scale:1, duration:0.1})
+                    .to(document.querySelector('.guirlandes'), {y:'0%', duration:0.5})
+                    .to(document.querySelector('.guirlandes'), {y:'-5%', duration:0.3})
+                    .to(document.querySelector('.pere-noel'), {y:'0%', duration:0.5})
+                    .to(document.querySelector('.pere-noel'), {y:'5%', duration:0.3})
             }else {
                 console.log("le menu est affiché")
                 menu.style.transform="translateX(-100%)";
                 menu.style.transition=" all 1.2s ease" ;
                 menu.style.animatation="slidein 1s ease-out";
                 settingsButton.style.zIndex = "30"
+                const tl12 = gsap.timeline();
+                const tl13 = gsap.timeline();
+                   
+            
+                    tl12
+                    .to(items[2], {opacity: 0, duration:0.1})
+                    .to(items[1], {opacity: 0, duration:0.1})
+                    .to(items[0], {opacity: 0, duration:0.1})
+                    tl13
+                    .to(document.querySelector('.guirlandes'), {y:'0%', duration:0.3})
+                    .to(document.querySelector('.guirlandes'), {y:'-100%', duration:0.5})
+                    .to(document.querySelector('.pere-noel'), {y:'0%', duration:0.3})
+                    .to(document.querySelector('.pere-noel'), {y:'100%', duration:0.5})
             }
         },
         settingsToggle: function(){
@@ -118,7 +147,7 @@ export default {
     height: 21.213203435596423px;
     transform: scaleY(0.5774) rotate(-45deg);
     background-color: inherit;
-    left: 2.3933982822017885px;
+    left: 3.3933982822017885px;
     box-shadow: 0 0 0px rgba(0,255,255,1);
     transition: 0s;
 }
