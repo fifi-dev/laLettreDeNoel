@@ -13,7 +13,7 @@
         <div class="flex">
             <div>
                 <div class="flex text-xs items-center">
-                    <audio autoplay controls class=" bgMusic absolute -top-60">
+                    <audio  controls class=" bgMusic absolute -top-60">
                         <source src="../assets/audio/merryChristmas.mp3" type="audio/mp3">
                     </audio>
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">

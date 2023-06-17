@@ -48,10 +48,12 @@ export default {
                 .insert(this.letter);
             if (data) {
                 console.log("Letter successfully added !");
-                this.goTo("success");
+                location.replace("http://localhost:8080/reussie");
+                //this.goTo("success");
             }
             else {
                 console.log(error);
+                location.replace("http://localhost:8080/reussie");
             }
         },
         goTo(name) {
@@ -193,6 +195,11 @@ input::placeholder {
 button{
     border: 1px solid white;
     padding: 10px 15px;
+    transition: all 0.3s;
 }
 
+button:hover {
+  background-color: white;
+  color: green;
+}
 </style>
