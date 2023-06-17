@@ -48,12 +48,13 @@ export default {
                 .insert(this.letter);
             if (data) {
                 console.log("Letter successfully added !");
+                window.location.href= "/reussie"
                 location.replace("http://localhost:8080/reussie");
                 //this.goTo("success");
             }
             else {
                 console.log(error);
-                location.replace("http://localhost:8080/reussie");
+                alert("Un problème est survenue")
             }
         },
         goTo(name) {
