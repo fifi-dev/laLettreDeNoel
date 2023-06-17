@@ -49,7 +49,7 @@ export default {
             if (data) {
                 console.log("Letter successfully added !");
                 window.location.href= "/reussie"
-                location.replace("http://localhost:8080/reussie");
+                //location.replace("http://localhost:8080/reussie");
                 //this.goTo("success");
             }
             else {
